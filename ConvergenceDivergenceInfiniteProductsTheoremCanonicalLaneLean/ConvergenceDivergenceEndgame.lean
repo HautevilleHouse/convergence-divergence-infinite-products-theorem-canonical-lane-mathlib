@@ -1,0 +1,22 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.ConvergenceDivergenceInfiniteProductsTheoremCanonicalLaneLean.InfiniteProductConvergence
+import HautevilleHouse.ConvergenceDivergenceInfiniteProductsTheoremCanonicalLaneLean.AbsoluteConvergenceTest
+import HautevilleHouse.ConvergenceDivergenceInfiniteProductsTheoremCanonicalLaneLean.LogarithmicCriterion
+import HautevilleHouse.ConvergenceDivergenceInfiniteProductsTheoremCanonicalLaneLean.ConditionalConvergence
+import HautevilleHouse.ConvergenceDivergenceInfiniteProductsTheoremCanonicalLaneLean.DivergenceCriteria
+import HautevilleHouse.ConvergenceDivergenceInfiniteProductsTheoremCanonicalLaneLean.WeierstrassProductTheorem
+import canonicalLaneMathlib.BridgeLemmas
+import canonicalLaneMathlib.GateLemmas
+
+namespace HautevilleHouse
+namespace ConvergenceDivergenceInfiniteProductsTheoremCanonicalLaneLean
+
+def ConstrainedConvergenceDivergenceClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_convergence_divergence_endgame (A : AdmissibleClass) :
+    ConstrainedConvergenceDivergenceClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end ConvergenceDivergenceInfiniteProductsTheoremCanonicalLaneLean
+end HautevilleHouse
